@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.zwt</groupId>
+    <artifactId>java-testing</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>java-testing</name>
+    <description>PluralSight — Introduction to Testing in Java</description>
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <modules>
+        <module>02-testing-code-cafe-example</module>
+        <module>04-intro-to-tdd</module>
+		<module>05-dependencies</module>
+        <module>06-going-outside-in</module>
+    </modules>
+
+</project>

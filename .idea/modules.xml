@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/02-testing-code-cafe-example/02-testing-code-cafe-example.iml" filepath="$PROJECT_DIR$/02-testing-code-cafe-example/02-testing-code-cafe-example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-intro-to-tdd/04-intro-to-tdd.iml" filepath="$PROJECT_DIR$/04-intro-to-tdd/04-intro-to-tdd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-dependencies/05-dependencies.iml" filepath="$PROJECT_DIR$/05-dependencies/05-dependencies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06-going-outside-in/06-going-outside-in.iml" filepath="$PROJECT_DIR$/06-going-outside-in/06-going-outside-in.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-testing.iml" filepath="$PROJECT_DIR$/java-testing.iml" />
+    </modules>
+  </component>
+</project>
