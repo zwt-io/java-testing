@@ -7,6 +7,7 @@ import java.util.List;
  */
 // DDD Repository
 // 具体可以替换成不同的实现
+@FunctionalInterface
 public interface SalesRepository {
 
     List<Sale> loadSales();

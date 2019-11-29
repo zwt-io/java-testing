@@ -1,4 +1,7 @@
-package io.zwt.testing.m5;
+package io.zwt.testing.guice;
+
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
@@ -11,8 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 一个具体的 Repository 实现
- * 这个是基于 CSV 实现的
  * Created by Tao on 2019-11-29.
  */
 public class CsvSalesRepository implements SalesRepository {
@@ -21,23 +22,20 @@ public class CsvSalesRepository implements SalesRepository {
     private PrintStream error;
     private List<Sale> sales;
 
-    // 构造器注入
-    public CsvSalesRepository(String fileLocation) {
+    @Inject
+    public CsvSalesRepository(@Named("fileLocation") String fileLocation) {
         this.fileLocation = fileLocation;
         error = System.out;
     }
 
-    // Setter 方法用于可选依赖的注入
     public void setError(PrintStream error) {
         this.error = error;
     }
 
-    // 工具方法
     private int parseInt(String value) {
         return Integer.parseInt(value.trim());
     }
 
-    // 具体的实现，基于 CSVReader 读取 csv 文件数据
     @Override
     public List<Sale> loadSales() {
         if (sales == null) {
@@ -45,7 +43,7 @@ public class CsvSalesRepository implements SalesRepository {
             final File file = new File(fileLocation);
 
             if (!file.exists() || !file.canRead() || !file.isFile()) {
-                System.err.println("找不到文件: " + file.getAbsolutePath());
+                System.err.println("找不到文件:  " + file.getAbsolutePath());
             }
 
             try (CSVReader reader = new CSVReader(new FileReader(fileLocation))) {
@@ -61,7 +59,6 @@ public class CsvSalesRepository implements SalesRepository {
 
                 return sales;
             } catch (IOException | CsvValidationException e) {
-                // 这边设置抛出异常时，错误信息往哪里输出
                 e.printStackTrace(error);
                 return null;
             }

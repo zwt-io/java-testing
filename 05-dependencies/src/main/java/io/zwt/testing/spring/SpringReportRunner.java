@@ -16,19 +16,19 @@ public class SpringReportRunner {
     private static String fileLocation;
 
     @Bean
-    public String fileLocation() {
+    public static String fileLocation() {
         return fileLocation;
     }
 
     @Bean
     @Profile({"out"})
-    public PrintStream out() {
+    public static PrintStream out() {
         return System.out;
     }
 
     @Bean
     @Profile("err")
-    public PrintStream err() {
+    public static PrintStream err() {
         return System.err;
     }
 

@@ -1,6 +1,7 @@
-package io.zwt.testing.spring;
+package io.zwt.testing.guice;
 
-import org.springframework.stereotype.Component;
+
+import javax.inject.Inject;
 
 import java.io.PrintStream;
 import java.time.LocalDateTime;
@@ -11,12 +12,12 @@ import java.util.Map;
 /**
  * Created by Tao on 2019-11-29.
  */
-@Component
 public class SalesReport {
 
-    private  PrintStream output;
-    private  SalesAnalysisService analyser;
+    private PrintStream output;
+    private SalesAnalysisService analyser;
 
+    @Inject
     public SalesReport(PrintStream output, SalesAnalysisService analyser) {
         this.output = output;
         this.analyser = analyser;
@@ -35,7 +36,7 @@ public class SalesReport {
     /**
      * 负责在控制台打印销售报告
      *
-     * @param title 表格的标题
+     * @param title  表格的标题
      * @param values 表格内容，每行是从一个 Map 里面提取
      */
     private void printTable(String title, Map<String, Integer> values) {
@@ -48,6 +49,7 @@ public class SalesReport {
 
     /**
      * 控制每行内容的打印格式
+     *
      * @param first
      * @param second
      */

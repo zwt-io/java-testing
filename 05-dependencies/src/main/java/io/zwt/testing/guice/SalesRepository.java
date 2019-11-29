@@ -1,4 +1,5 @@
-package io.zwt.testing.spring;
+package io.zwt.testing.guice;
+
 
 import java.util.List;
 

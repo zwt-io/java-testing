@@ -38,6 +38,7 @@ public class SalesAnalysisServiceWithMockitoMockTest {
         Map<String, Integer> storeSales = analysisService.tallyStoreSales();
 
         assertEquals(expectedStoreSales, storeSales, "Calculated wrong store sales");
+        // 验证是否调用了 loadSales() 方法
         verify(mockRepository, times(1)).loadSales();
     }
 }

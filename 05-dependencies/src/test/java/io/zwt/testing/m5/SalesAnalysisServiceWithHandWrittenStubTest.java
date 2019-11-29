@@ -38,12 +38,7 @@ public class SalesAnalysisServiceWithHandWrittenStubTest {
     public void shouldAggregateStoreSales() {
 
         // given
-        SalesRepository stubRepository = new SalesRepository() {
-            @Override
-            public List<Sale> loadSales() {
-                return exampleSales;
-            }
-        };
+        SalesRepository stubRepository = () -> exampleSales;
         SalesAnalysisService analysisService = new SalesAnalysisService(stubRepository);
 
         // when
@@ -57,12 +52,7 @@ public class SalesAnalysisServiceWithHandWrittenStubTest {
     public void shouldAggregateProductSales() {
 
         // given
-        SalesRepository stubRepository = new SalesRepository() {
-            @Override
-            public List<Sale> loadSales() {
-                return exampleSales;
-            }
-        };
+        SalesRepository stubRepository = () -> exampleSales;
         SalesAnalysisService analysisService = new SalesAnalysisService(stubRepository);
 
         // when

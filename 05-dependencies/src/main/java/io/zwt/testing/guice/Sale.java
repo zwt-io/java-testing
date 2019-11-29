@@ -1,4 +1,4 @@
-package io.zwt.testing.spring;
+package io.zwt.testing.guice;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,8 +15,8 @@ public class Sale {
     private final int number;
     private final int pricePerItem;
 
+    // 这个方法需要的
     public int getValue() {
         return getNumber() * getPricePerItem();
     }
-
 }

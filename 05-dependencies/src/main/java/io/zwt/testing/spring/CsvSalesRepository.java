@@ -2,8 +2,6 @@ package io.zwt.testing.spring;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
-import io.zwt.testing.m5.Sale;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;

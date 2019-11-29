@@ -1,6 +1,6 @@
-package io.zwt.testing.spring;
+package io.zwt.testing.guice;
 
-import org.springframework.stereotype.Service;
+import javax.inject.Inject;
 
 import java.util.Map;
 import java.util.function.Function;
@@ -9,14 +9,15 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.summingInt;
 
 /**
+ * 兼容 JSR-330 的依赖注入注解
  * Created by Tao on 2019-11-29.
  */
-@Service
 public class SalesAnalysisService {
 
     private final SalesRepository repo;
 
 
+    @Inject
     public SalesAnalysisService(SalesRepository repo) {
         this.repo = repo;
     }

@@ -31,7 +31,10 @@ public class SalesAnalysisServiceWithMockitoStubTest {
 
     @Test
     public void shouldAggregateStoreSales() {
+
+        // 使用 Mockito
         SalesRepository stubRepository = mock(SalesRepository.class);
+        // 当调用桩的方法，应该返回的数据
         when(stubRepository.loadSales()).thenReturn(exampleSales);
 
         SalesAnalysisService analysisService = new SalesAnalysisService(stubRepository);
