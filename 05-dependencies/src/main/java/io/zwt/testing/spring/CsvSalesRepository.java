@@ -3,6 +3,7 @@ package io.zwt.testing.spring;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import io.zwt.testing.m5.Sale;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -42,7 +43,7 @@ public class CsvSalesRepository implements SalesRepository {
             final File file = new File(fileLocation);
 
             if (!file.exists() || !file.canRead() || !file.isFile()) {
-                System.err.println("Unable to find readable file: " + file.getAbsolutePath());
+                System.err.println("找不到文件:  " + file.getAbsolutePath());
             }
 
             try (CSVReader reader = new CSVReader(new FileReader(fileLocation))) {

@@ -10,6 +10,7 @@ import java.io.PrintStream;
  */
 @Configuration
 @PropertySource("application.properties")
+@ComponentScan("io.zwt.testing.spring")
 public class SpringReportRunner {
 
     private static String fileLocation;
@@ -20,7 +21,7 @@ public class SpringReportRunner {
     }
 
     @Bean
-    @Profile("out")
+    @Profile({"out"})
     public PrintStream out() {
         return System.out;
     }
@@ -31,21 +32,39 @@ public class SpringReportRunner {
         return System.err;
     }
 
+//    @Bean
+//    @Profile("white")
+//    public SalesRepository salesRepositoryWithStandardOutput() {
+//        CsvSalesRepository csvSalesRepository = new CsvSalesRepository(fileLocation());
+//        csvSalesRepository.setError(System.out);
+//        return csvSalesRepository;
+//    }
+//
+//    @Bean
+//    @Profile("red")
+//    public SalesRepository salesRepositoryWithErrorOutput() {
+//        CsvSalesRepository csvSalesRepository = new CsvSalesRepository(fileLocation());
+//        csvSalesRepository.setError(System.err);
+//        return csvSalesRepository;
+//    }
+
+
     public static void main(String[] args) {
         if (args.length < 1) {
-            System.err.println("You must provide a commandline argument specifying the file to analyse");
+            System.err.println("必须在命令行参数指定要读入的数据");
             System.exit(-1);
         }
 
         fileLocation = args[0];
-
-        ApplicationContext context = new AnnotationConfigApplicationContext("io.zwt.testing.spring");
 
 //        CsvSalesRepository repo = new CsvSalesRepository(args[0]);
 //        repo.setError(System.err);
 
 //        SalesAnalysisService analysisService = new SalesAnalysisService(repo);
 //        SalesReport report = new SalesReport(System.out, analysisService);
+
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringReportRunner.class);
+//        context.refresh();
 
         SalesReport report = context.getBean(SalesReport.class);
         report.report();
